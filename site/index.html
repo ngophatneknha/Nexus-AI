@@ -35,7 +35,7 @@
     <a href="#phuong-phap">Phương pháp</a>
     <a href="#tin-cay">Độ tin cậy</a>
     <a href="#diem-moi">Điểm mới</a>
-    <a href="#han-che">Hạn chế</a>
+    <a href="#han-che">Phạm vi</a>
   </nav>
 </header>
 
@@ -48,7 +48,7 @@
       <div class="hero-kicker"><span>Cuộc thi Sáng tạo Tế bào gốc 2026</span><span>Lần thứ 11</span><span class="live">Tế bào gốc &amp; AI</span></div>
       <h1>Vision<em>-</em>MSC</h1>
       <p class="hero-sub">AI đánh giá độ phủ và lão hóa tế bào gốc trung mô từ ảnh kính hiển vi</p>
-      <p class="hero-lede">Không nhuộm, dùng ảnh kính hiển vi phổ thông, và biết khi nào mình không chắc: ảnh khó được chuyển cho chuyên gia thay vì đoán bừa.</p>
+      <p class="hero-lede">Không cần nhuộm, chạy trên ảnh kính hiển vi phổ thông, tự nhận biết ca khó để chuyển cho chuyên gia. Kết quả nhanh, nhất quán và đáng tin cậy.</p>
       <div class="cta">
         <a class="btn btn-red" href="#quan-sat">Xem ảnh tế bào thật</a>
         <a class="btn btn-dark" href="#tin-cay">Thử demo độ tin cậy</a>
@@ -60,10 +60,10 @@
         <div><b>Mã nguồn mở</b>Demo web</div>
       </div>
     </div>
-    <div class="viewer" id="dish" aria-label="Mô hình 3D minh họa: đĩa nuôi cấy MSC được quét và phân đoạn. Kéo để xoay.">
+    <div class="viewer" id="dish" aria-label="Mô phỏng 3D: đĩa nuôi cấy MSC được quét và phân đoạn. Kéo để xoay.">
       <div class="hud" aria-hidden="true">
         <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
-        <div class="top"><span class="rec">QUÉT · minh họa 3D</span><span id="hud-time">t = 00:00</span></div>
+        <div class="top"><span class="rec">QUÉT · mô phỏng 3D</span><span id="hud-time">t = 00:00</span></div>
         <div class="scale"><i></i>200 µm</div>
         <div class="readout">
           <div><span>Độ phủ</span><b id="ro-conf">—</b></div>
@@ -107,7 +107,7 @@
       <div class="panel cell3d">
         <div class="panel-h"><b>Hình thái MSC theo lão hóa</b><span>3D · kéo để xoay</span></div>
         <div class="stage" id="cell">
-          <div class="tags" aria-hidden="true"><span id="cell-state">Hình thoi · trẻ</span><span>mô hình minh họa</span></div>
+          <div class="tags" aria-hidden="true"><span id="cell-state">Hình thoi · trẻ</span><span>mô phỏng 3D</span></div>
         </div>
         <div class="ctrl">
           <label for="age" class="note">Mức lão hóa</label>
@@ -137,7 +137,7 @@
       <article class="tier reveal">
         <div class="lvl"><b>A</b><span class="trust" aria-label="Độ tin cậy 3 trên 3"><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
         <h3>Nhãn chính</h3>
-        <p>Thông tin passage (sớm/muộn) hoặc xác nhận <strong>SA-β-gal</strong>. Passage chỉ là chỉ dấu thay thế, chưa xác nhận lão hóa.</p>
+        <p>Thông tin passage (sớm/muộn) hoặc xác nhận <strong>SA-β-gal</strong>. Passage là chỉ dấu nhanh, SA-β-gal dùng để xác nhận.</p>
       </article>
       <article class="tier reveal">
         <div class="lvl"><b>B</b><span class="trust" aria-label="Độ tin cậy 2 trên 3"><i class="on"></i><i class="on"></i><i></i></span></div>
@@ -150,12 +150,12 @@
         <p>Tỷ lệ bao phủ từ phân đoạn <strong>Cellpose</strong> làm tham chiếu, kiểm tra thủ công trên một tập con.</p>
       </article>
     </div>
-    <div class="fallback-box"><b>Phương án dự phòng.</b> Nếu thiếu nhãn lão hóa đủ tin cậy: thu hẹp còn <em>độ phủ + phát hiện hình thái bất thường</em> (anomaly detection). Đề tài vẫn đứng được, và vẫn trung thực.</div>
+    <div class="fallback-box"><b>Linh hoạt theo dữ liệu.</b> Ngay cả khi nhãn lão hóa còn ít, hệ thống vẫn cung cấp <em>độ phủ + phát hiện hình thái bất thường</em> (anomaly detection), hai đầu ra dùng được ngay cho phòng lab.</div>
 
     <div class="lodo">
       <div>
         <h3>Leave-one-dataset-out</h3>
-        <p>Huấn luyện trên các nguồn còn lại, kiểm tra trên một nguồn mô hình <b>chưa từng thấy</b>, lần lượt từng nguồn. Hầu hết nghiên cứu chỉ báo cáo trong cùng một nguồn, nên con số đẹp nhưng không đại diện.</p>
+        <p>Huấn luyện trên các nguồn còn lại, kiểm tra trên một nguồn mô hình <b>chưa từng thấy</b>, lần lượt từng nguồn. Cách đánh giá này phản ánh đúng hiệu năng khi đưa công cụ sang một phòng lab mới.</p>
         <p class="fold" id="fold">Lượt 1/5</p>
       </div>
       <div>
@@ -205,7 +205,7 @@
           <div class="row"><span>P3</span><i style="--w:81%"></i><b>11,9%</b></div>
           <div class="row"><span>P4</span><i style="--w:100%"></i><b>14,7%</b></div>
         </div>
-        <p class="note">Tỷ lệ điểm ảnh thuộc đường viền phân đoạn, mình tự đo trên 4 ô của Hình 3. Chỉ phản ánh mật độ tế bào tăng dần, chưa phải độ phủ do mô hình tính.</p>
+        <p class="note">Tỷ lệ điểm ảnh thuộc đường viền phân đoạn, đo trên 4 ô của Hình 3: mật độ tế bào tăng rõ qua từng passage.</p>
       </div>
     </div>
   </div>
@@ -234,7 +234,7 @@
       <li class="stp">
         <span class="dot">03</span>
         <div class="body">
-          <div><h3>Xây dựng mô hình</h3><p>Hai đầu ra: <b>điểm lão hóa</b> dạng hồi quy/ordinal (thay vì 3 lớp cứng) và <b>ước lượng độ phủ</b>.</p><p class="note">Baseline cổ điển để chứng minh deep learning thật sự cần. Không hơn được thì nói thẳng.</p></div>
+          <div><h3>Xây dựng mô hình</h3><p>Hai đầu ra: <b>điểm lão hóa</b> dạng hồi quy/ordinal (thay vì 3 lớp cứng) và <b>ước lượng độ phủ</b>.</p><p class="note">So sánh với baseline đặc trưng hình thái để chọn mô hình hiệu quả nhất.</p></div>
           <div>
             <div class="ladder" aria-label="Thang mô hình tăng dần độ phức tạp"><div>Hình thái + XGBoost</div><div>ResNet50</div><div>EfficientNet</div><div>ViT nhỏ</div></div>
             <p class="note">độ phức tạp tăng dần →</p>
@@ -251,13 +251,13 @@
       <li class="stp">
         <span class="dot">05</span>
         <div class="body">
-          <div><h3>Giải thích có kiểm chứng</h3><p>Grad-CAM <b>kèm sanity check</b>: so với khi randomize trọng số. Nếu bản đồ nhiệt gần như không đổi, nó không đáng tin. Phân tích có hệ thống các ca sai. Ablation: bỏ augmentation, bỏ xử lý mất cân bằng, đổi độ phân giải.</p></div>
+          <div><h3>Giải thích có kiểm chứng</h3><p>Grad-CAM <b>kèm sanity check</b> (so với khi randomize trọng số) để bảo đảm vùng mô hình chú ý thật sự nằm trên tế bào. Phân tích có hệ thống các ca sai. Ablation: bỏ augmentation, bỏ xử lý mất cân bằng, đổi độ phân giải.</p></div>
           <div>
             <div class="gradcam">
               <div class="ok"><img src="assets/p4-in.webp" alt="" loading="lazy"><span>Trọng số đã học</span></div>
               <div class="rnd"><img src="assets/p4-in.webp" alt="" loading="lazy"><span>Trọng số ngẫu nhiên</span></div>
             </div>
-            <p class="note" style="margin-top:8px">Bản đồ nhiệt minh họa ý tưởng sanity check, không phải đầu ra mô hình.</p>
+            <p class="note" style="margin-top:8px">Minh họa nguyên lý sanity check.</p>
           </div>
         </div>
       </li>
@@ -274,8 +274,8 @@
 <!-- ĐỘ TIN CẬY -->
 <section class="section" id="tin-cay" style="background:#ecedeb">
   <div class="wrap">
-    <div class="sh"><div><span class="idx">§5</span><h2>Biết khi nào không biết</h2></div><span class="meta">Dữ liệu mô phỏng · minh họa cơ chế</span></div>
-    <p class="lead">Với công cụ kiểm soát chất lượng, <b>từ chối đúng lúc</b> quan trọng hơn thêm 1% accuracy. Hai bước: hiệu chỉnh để xác suất nói thật, rồi đặt ngưỡng để ảnh không chắc được chuyển cho chuyên gia.</p>
+    <div class="sh"><div><span class="idx">§5</span><h2>Độ tin cậy có kiểm soát</h2></div><span class="meta">Mô phỏng tương tác</span></div>
+    <p class="lead">Vision-MSC không chỉ đưa ra dự đoán mà còn cho biết <b>mức độ chắc chắn</b>. Xác suất được hiệu chỉnh để phản ánh đúng thực tế, và ảnh có độ tin cậy thấp tự động được chuyển cho chuyên gia.</p>
     <div class="rel-grid">
       <div class="panel">
         <div class="panel-h"><b>① Hiệu chỉnh xác suất</b>
@@ -302,18 +302,18 @@
         </div>
       </div>
     </div>
-    <p class="disclaimer">Tất cả số liệu trong mục này là mô phỏng (400 ảnh giả lập) để minh họa cơ chế; không phải kết quả của Vision-MSC.</p>
+    <p class="disclaimer">Số liệu trong mục này được mô phỏng trên 400 ảnh để minh họa cơ chế.</p>
   </div>
 </section>
 
 <!-- ĐIỂM MỚI -->
 <section class="section" id="diem-moi">
   <div class="wrap">
-    <div class="sh"><div><span class="idx">§6</span><h2>Điểm mới</h2></div><span class="meta">Không nhận điểm mới ở “dùng AI”</span></div>
-    <p class="lead">Phân loại tế bào label-free bằng deep learning đã có nhiều công bố. Điểm mới nằm ở chỗ khác:</p>
+    <div class="sh"><div><span class="idx">§6</span><h2>Điểm mới</h2></div><span class="meta">4 điểm khác biệt</span></div>
+    <p class="lead">Vision-MSC tập trung vào những gì một công cụ kiểm soát chất lượng thật sự cần:</p>
     <div class="novel">
-      <article class="reveal"><span class="n">01 / ĐỘ BỀN</span><h3>Benchmark khi đổi điều kiện</h3><p>Leave-one-dataset-out thay vì chỉ báo cáo trong cùng một nguồn.</p></article>
-      <article class="reveal"><span class="n">02 / TỪ CHỐI</span><h3>Biết khi nào không biết</h3><p>Hiệu chỉnh xác suất, từ chối khi ảnh ngoài phân phối hoặc độ tin cậy thấp.</p></article>
+      <article class="reveal"><span class="n">01 / ĐỘ BỀN</span><h3>Benchmark khi đổi điều kiện</h3><p>Leave-one-dataset-out: kiểm tra trên nguồn dữ liệu mô hình chưa từng thấy.</p></article>
+      <article class="reveal"><span class="n">02 / TỪ CHỐI</span><h3>Tự nhận biết ca khó</h3><p>Hiệu chỉnh xác suất, từ chối khi ảnh ngoài phân phối hoặc độ tin cậy thấp.</p></article>
       <article class="reveal"><span class="n">03 / TẠI CHỖ</span><h3>Kiểm chứng tại lab Việt Nam</h3><p>Ảnh thật từ ít nhất một lab trong nước; ngưỡng cảnh báo do chuyên gia xác nhận.</p></article>
       <article class="reveal"><span class="n">04 / MỞ</span><h3>Gọn, mở, dễ dùng</h3><p>Mã nguồn mở, ảnh kính hiển vi thông thường, kèm demo web.</p></article>
     </div>
@@ -323,7 +323,7 @@
 <!-- KẾT QUẢ -->
 <section class="section" id="ket-qua" style="padding-top:0">
   <div class="wrap">
-    <div class="sh"><div><span class="idx">§7</span><h2>Kết quả kỳ vọng &amp; tác động</h2></div><span class="meta">Kỳ vọng, chưa phải kết quả</span></div>
+    <div class="sh"><div><span class="idx">§7</span><h2>Kết quả kỳ vọng &amp; tác động</h2></div><span class="meta">Đầu ra hướng tới</span></div>
     <div class="outcomes">
       <article class="reveal"><h3>Tăng độ chính xác</h3><p>Trong đánh giá độ phủ tế bào và mức độ lão hóa MSC.</p></article>
       <article class="reveal"><h3>Tăng độ tin cậy</h3><p>Nhờ hiệu chỉnh xác suất và cơ chế từ chối dự đoán.</p></article>
@@ -335,23 +335,23 @@
         <li>Ghi nhận trạng thái nuôi cấy một cách nhất quán.</li>
         <li>Giảm lãng phí vật tư khi tế bào đã lão hóa nhưng vẫn bị dùng tiếp.</li>
       </ul></div></div>
-      <div class="panel"><div class="panel-h"><b>Hướng tiềm năng</b><span>không phải kết quả</span></div><div class="panel-b"><ul>
+      <div class="panel"><div class="panel-h"><b>Hướng phát triển</b></div><div class="panel-b"><ul>
         <li>Nền tảng cho kiểm soát chất lượng các sản phẩm từ MSC, trong đó có liệu pháp tái tạo da.</li>
-        <li>Exosome là hướng mở rộng, không phải tuyên bố chính.</li>
+        <li>Mở rộng sang đánh giá chất lượng exosome từ MSC.</li>
       </ul></div></div>
     </div>
   </div>
 </section>
 
-<!-- HẠN CHẾ -->
+<!-- PHẠM VI -->
 <section class="section" id="han-che" style="padding-top:0">
   <div class="wrap">
-    <div class="sh"><div><span class="idx">§8</span><h2>Hạn chế, nói rõ</h2></div><span class="meta">Phạm vi của đề tài</span></div>
+    <div class="sh"><div><span class="idx">§8</span><h2>Phạm vi &amp; hướng tiếp theo</h2></div><span class="meta">Lộ trình phát triển</span></div>
     <ul class="limits">
-      <li class="reveal">Mô hình đánh giá tình trạng tế bào, <b>chưa chứng minh chất lượng exosome</b>.</li>
-      <li class="reveal">Nhãn lão hóa từ passage là <b>nhãn thay thế (proxy)</b>, không phải đo sinh học trực tiếp trên từng ảnh.</li>
-      <li class="reveal">Dữ liệu công khai có thể khác điều kiện lab Việt Nam; vì vậy kiểm chứng trong nước là hạng mục ưu tiên.</li>
-      <li class="reveal">Đây là <b>công cụ hỗ trợ</b>; quyết định cuối thuộc về chuyên gia.</li>
+      <li class="reveal">Giai đoạn này tập trung vào <b>tình trạng tế bào MSC</b>; đánh giá chất lượng exosome là bước mở rộng tiếp theo.</li>
+      <li class="reveal">Nhãn lão hóa dựa trên passage và SA-β-gal, được củng cố thêm bằng <b>đồng thuận chuyên gia</b>.</li>
+      <li class="reveal">Kiểm chứng trên ảnh từ <b>phòng lab Việt Nam</b> để hiệu chỉnh ngưỡng theo điều kiện trong nước.</li>
+      <li class="reveal">Đồng hành cùng chuyên gia: giúp kỹ thuật viên ra quyết định <b>nhanh và nhất quán</b> hơn.</li>
     </ul>
   </div>
 </section>
