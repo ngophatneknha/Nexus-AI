@@ -148,5 +148,25 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { threshold: 0.12 });
-  els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+  els.forEach(el => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = Math.min([...el.parentNode.children].indexOf(el), 4) * 70 + 'ms'; // stagger grid siblings
+    io.observe(el);
+  });
+})();
+
+/* ---------- Reading progress, active section, mobile menu ---------- */
+(() => {
+  const bar = document.getElementById('progress');
+  const links = [...document.querySelectorAll('#site-nav a')];
+  const menu = document.querySelector('.menu');
+  addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+  }, { passive: true });
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.hash === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  links.forEach(a => io.observe(document.querySelector(a.hash)));
+  links.forEach(a => a.addEventListener('click', () => menu.open = false));
 })();
