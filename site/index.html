@@ -8,25 +8,30 @@
 <meta property="og:title" content="Vision-MSC — AI đánh giá độ phủ và lão hóa MSC">
 <meta property="og:description" content="Công cụ AI label-free hỗ trợ kiểm soát chất lượng nuôi cấy tế bào gốc trung mô tại phòng lab Việt Nam.">
 <meta property="og:image" content="assets/fig3-phan-doan.webp">
-<meta name="theme-color" content="#9e1a20">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='13' ry='7' transform='rotate(-30 16 16)' fill='%239e1a20'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23faf6f1'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0c0e10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%23d23a42' stroke-width='3'/%3E%3Cellipse cx='16' cy='16' rx='9' ry='3.5' transform='rotate(-30 16 16)' fill='%23d23a42'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
 </head>
 <body>
 
 <a class="skip" href="#tom-tat">Bỏ qua, tới nội dung</a>
 <div class="progress" aria-hidden="true"><span id="progress"></span></div>
 <header class="nav">
-  <a href="#top" class="brand"><span class="brand-dot"></span>Vision-MSC</a>
+  <a href="#top" class="brand">
+    <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#d23a42" stroke-width="2.5"/><ellipse cx="16" cy="16" rx="8.5" ry="3.2" transform="rotate(-30 16 16)" fill="#d23a42"/></svg>
+    Vision-MSC <small>/ NexusAI · MĐT 515</small>
+  </a>
   <details class="menu">
     <summary aria-label="Mở menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
   </details>
   <nav id="site-nav" aria-label="Mục lục">
     <a href="#van-de">Vấn đề</a>
     <a href="#du-lieu">Dữ liệu</a>
+    <a href="#quan-sat">Quan sát</a>
     <a href="#phuong-phap">Phương pháp</a>
     <a href="#tin-cay">Độ tin cậy</a>
     <a href="#diem-moi">Điểm mới</a>
@@ -36,261 +41,357 @@
 
 <main id="top">
 
-<!-- HERO -->
+<!-- HERO: 3D culture dish -->
 <section class="hero">
-  <div class="hero-text">
-    <p class="eyebrow">Cuộc thi Sáng tạo Tế bào gốc 2026 · Lần thứ 11 · Chủ đề: Tế bào gốc &amp; AI</p>
-    <h1>Vision-MSC</h1>
-    <p class="hero-sub">AI đánh giá <em>độ phủ</em> và <em>lão hóa</em> tế bào gốc trung mô từ ảnh kính hiển vi</p>
-    <p class="hero-lede">Không nhuộm, chạy trên ảnh kính hiển vi phổ thông, và <strong>biết khi nào mình không chắc</strong>: ảnh khó sẽ được chuyển cho chuyên gia thay vì đoán bừa.</p>
-    <div class="hero-meta">
-      <span class="chip chip-solid">Đội thi: NexusAI</span>
-      <span class="chip">MĐT: 515</span>
-      <span class="chip">Label-free</span>
-      <span class="chip">Mã nguồn mở</span>
+  <div class="hero-in">
+    <div>
+      <div class="hero-kicker"><span>Cuộc thi Sáng tạo Tế bào gốc 2026</span><span>Lần thứ 11</span><span class="live">Tế bào gốc &amp; AI</span></div>
+      <h1>Vision<em>-</em>MSC</h1>
+      <p class="hero-sub">AI đánh giá độ phủ và lão hóa tế bào gốc trung mô từ ảnh kính hiển vi</p>
+      <p class="hero-lede">Không nhuộm, dùng ảnh kính hiển vi phổ thông, và biết khi nào mình không chắc: ảnh khó được chuyển cho chuyên gia thay vì đoán bừa.</p>
+      <div class="cta">
+        <a class="btn btn-red" href="#quan-sat">Xem ảnh tế bào thật</a>
+        <a class="btn btn-dark" href="#tin-cay">Thử demo độ tin cậy</a>
+      </div>
+      <div class="team">
+        <div><b>NexusAI</b>Đội thi</div>
+        <div><b>515</b>Mã đề tài</div>
+        <div><b>Label-free</b>Không nhuộm</div>
+        <div><b>Mã nguồn mở</b>Demo web</div>
+      </div>
     </div>
-    <div class="cta">
-      <a class="btn btn-solid" href="#phuong-phap">Xem phương pháp</a>
-      <a class="btn" href="#tin-cay">Thử demo độ tin cậy <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="viewer" id="dish" aria-label="Mô hình 3D minh họa: đĩa nuôi cấy MSC được quét và phân đoạn. Kéo để xoay.">
+      <div class="hud" aria-hidden="true">
+        <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+        <div class="top"><span class="rec">QUÉT · minh họa 3D</span><span id="hud-time">t = 00:00</span></div>
+        <div class="scale"><i></i>200 µm</div>
+        <div class="readout">
+          <div><span>Độ phủ</span><b id="ro-conf">—</b></div>
+          <div class="bar"><i id="ro-bar"></i></div>
+          <div><span>Đã phân đoạn</span><b id="ro-cells">—</b></div>
+          <div><span>Nghi lão hóa</span><b id="ro-old">—</b></div>
+        </div>
+        <span class="hint" id="hint">Kéo để xoay đĩa</span>
+      </div>
     </div>
-    <p class="tagline">Tự động hóa phân tích hình ảnh — hướng tới nuôi cấy an toàn và hiệu quả.</p>
   </div>
-  <figure class="hero-scope" aria-label="Hình minh họa: AI quét ảnh tế bào và ước tính độ phủ">
-    <div class="scope">
-      <canvas id="cells"></canvas>
-      <div class="scope-ring"></div>
-    </div>
-    <div class="readout">
-      <div><span>Độ phủ (ước tính)</span><b id="ro-conf">—</b></div>
-      <div><span>Tế bào đã quét</span><b id="ro-cells">—</b></div>
-      <div><span>Trạng thái</span><b id="ro-state">Đang quét</b></div>
-    </div>
-    <figcaption>Hoạt họa minh họa, không phải kết quả mô hình.</figcaption>
-  </figure>
 </section>
 
 <!-- TÓM TẮT -->
-<section class="band" id="tom-tat">
-  <div class="wrap two-col">
-    <h2 class="kicker">Tóm tắt</h2>
-    <p class="big">Tế bào gốc trung mô (MSC) có tiềm năng lớn trong y học tái tạo, nhưng đánh giá chất lượng nuôi cấy vẫn dựa nhiều vào quan sát bằng mắt. <strong>Vision-MSC</strong> phân tích ảnh kính hiển vi trường sáng và tương phản pha để ước tính độ phủ tế bào, đánh giá hình thái liên quan đến lão hóa và phát hiện bất thường, kết hợp học máy, học sâu và hiệu chỉnh độ tin cậy để hỗ trợ chuyên gia kiểm soát chất lượng nuôi cấy MSC.</p>
+<div class="wrap" id="tom-tat">
+  <div class="abstract">
+    <span class="note">TÓM TẮT</span>
+    <p>Tế bào gốc trung mô (MSC) có tiềm năng lớn trong y học tái tạo, nhưng đánh giá chất lượng nuôi cấy vẫn dựa nhiều vào quan sát bằng mắt. <strong>Vision-MSC</strong> phân tích ảnh kính hiển vi trường sáng và tương phản pha để ước tính độ phủ tế bào, đánh giá hình thái liên quan đến lão hóa và phát hiện bất thường, kết hợp học máy, học sâu và hiệu chỉnh độ tin cậy để hỗ trợ chuyên gia kiểm soát chất lượng nuôi cấy MSC.</p>
   </div>
-</section>
+</div>
 
 <!-- VẤN ĐỀ -->
-<section class="wrap section" id="van-de">
-  <p class="num">01</p>
-  <h2>Đặt vấn đề</h2>
-  <div class="problem-grid">
-    <article class="card">
-      <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
-      <h3>Đánh giá bằng mắt</h3>
-      <p>Kỹ thuật viên ước lượng độ phủ và nhận biết tế bào lão hóa (to, dẹt, nhiều hạt) theo kinh nghiệm cá nhân.</p>
-    </article>
-    <article class="card">
-      <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 16v-5M10 16V6M14 16v-8M18 16v-3"/></svg></div>
-      <h3>Khó chuẩn hóa</h3>
-      <p>Kết quả phụ thuộc người đánh giá, sai lệch giữa các lô và giữa các phòng lab.</p>
-    </article>
-    <article class="card">
-      <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-      <h3>Giải pháp ngoại nhập đắt</h3>
-      <p>Hệ thống chụp và phân tích tự động của hãng thiết bị đắt, gắn với phần cứng riêng, ít lab trong nước có.</p>
-    </article>
-  </div>
-  <div class="goal">
-    <h3>Mục tiêu</h3>
-    <p>Xây dựng công cụ AI phân tích ảnh MSC để đánh giá <b>độ phủ tế bào</b>, <b>mức độ lão hóa</b> và <b>phát hiện bất thường</b>, đồng thời cung cấp kết quả đáng tin cậy, dễ ứng dụng trong thực tế. Không xâm lấn, tương thích kính hiển vi phổ thông tại Việt Nam.</p>
+<section class="section" id="van-de">
+  <div class="wrap">
+    <div class="sh"><div><span class="idx">§1</span><h2>Đặt vấn đề</h2></div><span class="meta">Hiện trạng: đánh giá bằng mắt</span></div>
+    <div class="problem">
+      <div class="issues">
+        <div class="issue">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          <div><h3>Đánh giá bằng mắt</h3><p>Kỹ thuật viên ước lượng độ phủ và nhận biết tế bào lão hóa (to, dẹt, nhiều hạt) theo kinh nghiệm cá nhân.</p></div>
+        </div>
+        <div class="issue">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 16v-5M10 16V6M14 16v-8M18 16v-3"/></svg>
+          <div><h3>Khó chuẩn hóa</h3><p>Kết quả phụ thuộc người đánh giá, sai lệch giữa các lô và giữa các phòng lab.</p></div>
+        </div>
+        <div class="issue">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div><h3>Giải pháp ngoại nhập đắt</h3><p>Hệ thống chụp và phân tích tự động của hãng thiết bị đắt, gắn với phần cứng riêng, ít lab trong nước có.</p></div>
+        </div>
+      </div>
+      <div class="panel cell3d">
+        <div class="panel-h"><b>Hình thái MSC theo lão hóa</b><span>3D · kéo để xoay</span></div>
+        <div class="stage" id="cell">
+          <div class="tags" aria-hidden="true"><span id="cell-state">Hình thoi · trẻ</span><span>mô hình minh họa</span></div>
+        </div>
+        <div class="ctrl">
+          <label for="age" class="note">Mức lão hóa</label>
+          <input type="range" id="age" min="0" max="100" value="0" aria-describedby="age-ends">
+          <div class="ends" id="age-ends"><span>Passage sớm</span><span>Passage muộn</span></div>
+          <div class="traits">
+            <div><span>Diện tích</span><b id="t-area">×1.0</b></div>
+            <div><span>Độ dẹt</span><b id="t-flat">thấp</b></div>
+            <div><span>Hạt nội bào</span><b id="t-gran">ít</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="goal reveal">
+      <h3>Mục tiêu</h3>
+      <p>Xây dựng công cụ AI phân tích ảnh MSC để đánh giá <b>độ phủ tế bào</b>, <b>mức độ lão hóa</b> và <b>phát hiện bất thường</b>, cung cấp kết quả đáng tin cậy, dễ ứng dụng thực tế. Không xâm lấn, tương thích kính hiển vi phổ thông tại Việt Nam.</p>
+    </div>
   </div>
 </section>
 
 <!-- DỮ LIỆU -->
-<section class="band band-ink section" id="du-lieu">
+<section class="section dark" id="du-lieu">
   <div class="wrap">
-    <p class="num">02</p>
-    <h2>Quy trình dữ liệu &amp; ba bậc nhãn</h2>
-    <p class="lead">Ảnh phase-contrast/brightfield MSC công khai (Cell Tracking Challenge, BBBC, Zenodo, Figshare, Kaggle) và ảnh từ phòng thí nghiệm Việt Nam. Mỗi nguồn bắt buộc kiểm tra: giấy phép, dòng tế bào, độ phóng đại, nhãn gốc từ đâu.</p>
+    <div class="sh"><div><span class="idx">§2</span><h2>Dữ liệu &amp; ba bậc nhãn</h2></div><span class="meta">5 nguồn công khai + lab Việt Nam</span></div>
+    <p class="lead">Ảnh phase-contrast/brightfield MSC công khai và ảnh từ phòng thí nghiệm Việt Nam. Mỗi nguồn bắt buộc kiểm tra: giấy phép, dòng tế bào, độ phóng đại, nhãn gốc từ đâu.</p>
     <div class="tiers">
-      <article class="tier">
-        <span class="tier-badge">A</span>
+      <article class="tier reveal">
+        <div class="lvl"><b>A</b><span class="trust" aria-label="Độ tin cậy 3 trên 3"><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
         <h3>Nhãn chính</h3>
-        <p>Ảnh có thông tin passage (sớm/muộn) hoặc xác nhận hoạt tính <b>SA-β-gal</b>. Passage chỉ là chỉ dấu thay thế, chưa xác nhận lão hóa.</p>
-        <span class="trust">Tin cậy nhất</span>
+        <p>Thông tin passage (sớm/muộn) hoặc xác nhận <strong>SA-β-gal</strong>. Passage chỉ là chỉ dấu thay thế, chưa xác nhận lão hóa.</p>
       </article>
-      <article class="tier">
-        <span class="tier-badge">B</span>
+      <article class="tier reveal">
+        <div class="lvl"><b>B</b><span class="trust" aria-label="Độ tin cậy 2 trên 3"><i class="on"></i><i class="on"></i><i></i></span></div>
         <h3>Đồng thuận chuyên gia</h3>
-        <p>Tập con chọn ngẫu nhiên, 2–3 chuyên gia gán nhãn độc lập, đo đồng thuận bằng <b>Cohen’s κ</b> / Fleiss’ κ. Ca mơ hồ được giữ lại để phân tích riêng.</p>
-        <span class="trust">Có kiểm định</span>
+        <p>2–3 chuyên gia gán nhãn độc lập trên tập con ngẫu nhiên, đo bằng <strong>Cohen’s κ</strong> / Fleiss’ κ. Ca mơ hồ giữ lại phân tích riêng.</p>
       </article>
-      <article class="tier">
-        <span class="tier-badge">C</span>
+      <article class="tier reveal">
+        <div class="lvl"><b>C</b><span class="trust" aria-label="Tham chiếu"><i class="on"></i><i></i><i></i></span></div>
         <h3>Độ phủ</h3>
-        <p>Tỷ lệ bao phủ lấy từ phân đoạn <b>Cellpose</b> làm tham chiếu, kiểm tra thủ công trên một tập con.</p>
-        <span class="trust">Tham chiếu</span>
+        <p>Tỷ lệ bao phủ từ phân đoạn <strong>Cellpose</strong> làm tham chiếu, kiểm tra thủ công trên một tập con.</p>
       </article>
     </div>
-    <div class="fallback">
-      <b>Phương án dự phòng.</b> Nếu thiếu nhãn lão hóa đủ tin cậy, đề tài thu hẹp còn <em>độ phủ + phát hiện hình thái bất thường</em> (anomaly detection). Đề tài vẫn đứng được, và vẫn trung thực.
+    <div class="fallback-box"><b>Phương án dự phòng.</b> Nếu thiếu nhãn lão hóa đủ tin cậy: thu hẹp còn <em>độ phủ + phát hiện hình thái bất thường</em> (anomaly detection). Đề tài vẫn đứng được, và vẫn trung thực.</div>
+
+    <div class="lodo">
+      <div>
+        <h3>Leave-one-dataset-out</h3>
+        <p>Huấn luyện trên các nguồn còn lại, kiểm tra trên một nguồn mô hình <b>chưa từng thấy</b>, lần lượt từng nguồn. Hầu hết nghiên cứu chỉ báo cáo trong cùng một nguồn, nên con số đẹp nhưng không đại diện.</p>
+        <p class="fold" id="fold">Lượt 1/5</p>
+      </div>
+      <div>
+        <div class="sources" id="sources">
+          <button class="src" type="button">Cell Tracking<em>huấn luyện</em></button>
+          <button class="src" type="button">BBBC<em>huấn luyện</em></button>
+          <button class="src" type="button">Zenodo<em>huấn luyện</em></button>
+          <button class="src" type="button">Figshare<em>huấn luyện</em></button>
+          <button class="src" type="button">Kaggle<em>huấn luyện</em></button>
+        </div>
+        <div class="ext"><span>Lab Việt Nam</span><b>kiểm chứng ngoài · luôn giữ riêng</b></div>
+      </div>
     </div>
-    <figure class="fig fig-light">
+
+    <figure class="figwrap reveal">
       <img src="assets/fig1-quy-trinh-du-lieu.webp" alt="Sơ đồ quy trình dữ liệu: ảnh MSC chia thành ba nhánh nhãn A Nhãn chính, B Đồng thuận, C Độ phủ, cùng phương án dự phòng" loading="lazy" width="1852" height="995">
       <figcaption><b>Hình 1.</b> Quy trình dữ liệu và gán nhãn theo ba nhóm A–B–C, kèm phương án dự phòng.</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- PHƯƠNG PHÁP -->
-<section class="wrap section" id="phuong-phap">
-  <p class="num">03</p>
-  <h2>Phương pháp</h2>
-  <ol class="steps">
-    <li class="step">
-      <div class="step-text"><span class="step-n">1</span><h3>Thu thập dữ liệu</h3><p>Thu thập ảnh MSC và xây dựng nhãn tham chiếu, phân biệt nhóm đối chứng với nhóm có dấu hiệu lão hóa.</p></div>
-      <figure><img src="assets/fig2-thu-thap.webp" alt="Ảnh MSC nhóm đối chứng và nhóm lão hóa cùng dữ liệu tham chiếu" loading="lazy" width="426" height="528"><figcaption><b>Hình 2.</b> Ảnh MSC và dữ liệu tham chiếu: đối chứng vs. lão hóa.</figcaption></figure>
-    </li>
-    <li class="step">
-      <div class="step-text"><span class="step-n">2</span><h3>Tiền xử lý dữ liệu</h3><p>Kiểm tra chất lượng, chuẩn hóa ảnh và chia tập. <b>Chống rò rỉ dữ liệu:</b> chia theo thí nghiệm / đĩa nuôi cấy / nguồn dữ liệu, group k-fold, nhiều seed, báo cáo trung bình ± SD.</p></div>
-      <figure><img src="assets/fig-tien-xu-ly.webp" alt="Ba bước tiền xử lý: kiểm tra, chuẩn hóa, chia tập Train Val Test" loading="lazy" width="1050" height="343"><figcaption>Kiểm tra → Chuẩn hóa → Chia tập.</figcaption></figure>
-    </li>
-    <li class="step">
-      <div class="step-text"><span class="step-n">3</span><h3>Xây dựng mô hình AI</h3><p>Hai đầu ra: <b>điểm lão hóa</b> dạng hồi quy/ordinal (thay vì 3 lớp cứng) và <b>ước lượng độ phủ</b>.</p>
-        <div class="ladder" aria-label="Thang mô hình từ baseline đến ViT">
-          <span>Đặc trưng hình thái + XGBoost</span><i>→</i><span>ResNet50</span><i>→</i><span>EfficientNet</span><i>→</i><span>ViT nhỏ</span>
-        </div>
-        <p class="note">Baseline cổ điển để chứng minh deep learning thật sự cần thiết. Nếu không hơn được, nói thẳng.</p>
-      </div>
-      <figure><img src="assets/fig3-phan-doan.webp" alt="Ảnh đầu vào và kết quả phân đoạn tế bào tại passage P1 đến P4" loading="lazy" width="600" height="315"><figcaption><b>Hình 3.</b> Ảnh đầu vào và phân đoạn tế bào tại passage P1–P4.</figcaption></figure>
-    </li>
-    <li class="step">
-      <div class="step-text"><span class="step-n">4</span><h3>Đánh giá mô hình</h3><p>So sánh hiệu năng và kiểm tra khả năng tổng quát hóa <b>leave-one-dataset-out</b>: huấn luyện trên một số nguồn, kiểm tra trên nguồn chưa thấy.</p>
-        <div class="metrics">
-          <span>macro-F1</span><span>QWK</span><span>ROC-AUC</span><span>Confusion matrix</span><span>MAE độ phủ</span><span>ECE</span><span>Risk–coverage</span>
+<!-- QUAN SÁT THẬT -->
+<section class="section" id="quan-sat">
+  <div class="wrap">
+    <div class="sh"><div><span class="idx">§3</span><h2>Nhìn tận mắt: P1 → P4</h2></div><span class="meta">Ảnh thật · Hình 3 trong poster</span></div>
+    <div class="observe">
+      <div class="panel">
+        <div class="panel-h"><b id="cmp-title">Passage P1</b><span>Kéo thanh dọc để so sánh</span></div>
+        <div class="compare" id="compare" role="slider" tabindex="0" aria-label="So sánh ảnh gốc và phân đoạn" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <img id="cmp-in" src="assets/p1-in.webp" alt="Ảnh tương phản pha MSC tại passage được chọn">
+          <img id="cmp-seg" class="seg-layer" src="assets/p1-mask.webp" alt="Đường viền phân đoạn tế bào tương ứng">
+          <span class="lbl l">Ảnh gốc</span><span class="lbl r">Phân đoạn</span>
+          <div class="handle"></div>
         </div>
       </div>
-      <figure><img src="assets/fig4-so-sanh.webp" alt="So sánh kết quả phân đoạn giữa các mô hình AI với nhãn chuẩn" loading="lazy" width="502" height="491"><figcaption><b>Hình 4.</b> So sánh phân đoạn giữa các mô hình AI với nhãn chuẩn.</figcaption></figure>
-    </li>
-    <li class="step step-wide">
-      <div class="step-text"><span class="step-n">5</span><h3>Đánh giá độ tin cậy</h3><p>Hiệu chỉnh xác suất (calibration) và nhận diện các dự đoán chưa đáng tin cậy. Giải thích bằng <b>Grad-CAM kèm sanity check</b> (so với khi randomize trọng số), vì Grad-CAM dễ cho hình đẹp nhưng không đáng tin. Phân tích có hệ thống các ca sai. Ablation: bỏ augmentation, bỏ xử lý mất cân bằng, đổi độ phân giải ảnh.</p></div>
-    </li>
-    <li class="step step-wide">
-      <div class="step-text"><span class="step-n">6</span><h3>Phát triển demo</h3><p>Công cụ web gọn, mã nguồn mở, chạy với ảnh kính hiển vi thông thường, hỗ trợ kiểm soát chất lượng nuôi cấy MSC. Hạ tầng: Colab và mô hình pretrained, không cần thiết bị đắt.</p></div>
-    </li>
-  </ol>
+      <div>
+        <p class="lead">Chọn từng passage để xem tế bào dày lên qua các lần cấy chuyển. Kéo thanh trên ảnh để đặt ảnh gốc cạnh kết quả phân đoạn, thứ mô hình dùng để tính độ phủ.</p>
+        <div class="passages" id="passages">
+          <button type="button" aria-pressed="true" data-p="1"><img src="assets/p1-in.webp" alt="" loading="lazy">P1</button>
+          <button type="button" aria-pressed="false" data-p="2"><img src="assets/p2-in.webp" alt="" loading="lazy">P2</button>
+          <button type="button" aria-pressed="false" data-p="3"><img src="assets/p3-in.webp" alt="" loading="lazy">P3</button>
+          <button type="button" aria-pressed="false" data-p="4"><img src="assets/p4-in.webp" alt="" loading="lazy">P4</button>
+        </div>
+        <div class="density" id="density">
+          <div class="row on"><span>P1</span><i style="--w:22%"></i><b>3,2%</b></div>
+          <div class="row"><span>P2</span><i style="--w:65%"></i><b>9,5%</b></div>
+          <div class="row"><span>P3</span><i style="--w:81%"></i><b>11,9%</b></div>
+          <div class="row"><span>P4</span><i style="--w:100%"></i><b>14,7%</b></div>
+        </div>
+        <p class="note">Tỷ lệ điểm ảnh thuộc đường viền phân đoạn, mình tự đo trên 4 ô của Hình 3. Chỉ phản ánh mật độ tế bào tăng dần, chưa phải độ phủ do mô hình tính.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ĐỘ TIN CẬY: DEMO -->
-<section class="band band-rose section" id="tin-cay">
+<!-- PHƯƠNG PHÁP -->
+<section class="section" id="phuong-phap" style="padding-top:0">
   <div class="wrap">
-    <p class="num">04</p>
-    <h2>Biết khi nào không biết</h2>
-    <p class="lead">Với công cụ kiểm soát chất lượng, việc <b>từ chối đúng lúc</b> quan trọng hơn thêm 1% accuracy. Kéo ngưỡng tin cậy để xem đánh đổi: nâng ngưỡng, mô hình trả lời ít ảnh hơn (coverage giảm) nhưng sai ít hơn (risk giảm); phần còn lại chuyển cho chuyên gia.</p>
-    <div class="rc">
-      <div class="rc-controls">
-        <label for="tau">Ngưỡng tin cậy τ = <output id="tau-out">0.60</output></label>
-        <input type="range" id="tau" min="0.30" max="0.98" step="0.01" value="0.60">
-        <div class="rc-stats">
-          <div><span>Coverage</span><b id="st-cov">—</b><small>ảnh mô hình tự trả lời</small></div>
-          <div><span>Risk</span><b id="st-risk">—</b><small>tỷ lệ sai trong số đó</small></div>
-          <div><span>Chuyển chuyên gia</span><b id="st-ref">—</b><small>ảnh / 400</small></div>
+    <div class="sh"><div><span class="idx">§4</span><h2>Phương pháp</h2></div><span class="meta">6 bước · Colab · mô hình pretrained</span></div>
+    <ol class="pipeline" id="pipeline" style="list-style:none;padding:0;margin:0">
+      <span class="rail" id="rail" aria-hidden="true"></span>
+      <li class="stp">
+        <span class="dot">01</span>
+        <div class="body">
+          <div><h3>Thu thập dữ liệu</h3><p>Thu thập ảnh MSC và xây dựng nhãn tham chiếu, phân biệt nhóm đối chứng với nhóm có dấu hiệu lão hóa.</p></div>
+          <figure><img src="assets/fig2-thu-thap.webp" alt="Ảnh MSC nhóm đối chứng và nhóm lão hóa cùng dữ liệu tham chiếu" loading="lazy" width="426" height="528"><figcaption><b>Hình 2.</b> Đối chứng vs. lão hóa.</figcaption></figure>
         </div>
-        <div class="tray" id="tray" aria-hidden="true"></div>
-        <p class="legend"><i class="d ok"></i>tự trả lời, đúng <i class="d bad"></i>tự trả lời, sai <i class="d ref"></i>chuyển chuyên gia</p>
+      </li>
+      <li class="stp">
+        <span class="dot">02</span>
+        <div class="body">
+          <div><h3>Tiền xử lý</h3><p>Kiểm tra chất lượng, chuẩn hóa ảnh và chia tập.</p><p><b>Chống rò rỉ dữ liệu:</b> chia theo thí nghiệm / đĩa nuôi cấy / nguồn dữ liệu, group k-fold, nhiều seed, báo cáo trung bình ± SD.</p></div>
+          <figure><img src="assets/fig-tien-xu-ly.webp" alt="Ba bước tiền xử lý: kiểm tra, chuẩn hóa, chia tập Train Val Test" loading="lazy" width="1050" height="343"><figcaption>Kiểm tra → Chuẩn hóa → Chia tập.</figcaption></figure>
+        </div>
+      </li>
+      <li class="stp">
+        <span class="dot">03</span>
+        <div class="body">
+          <div><h3>Xây dựng mô hình</h3><p>Hai đầu ra: <b>điểm lão hóa</b> dạng hồi quy/ordinal (thay vì 3 lớp cứng) và <b>ước lượng độ phủ</b>.</p><p class="note">Baseline cổ điển để chứng minh deep learning thật sự cần. Không hơn được thì nói thẳng.</p></div>
+          <div>
+            <div class="ladder" aria-label="Thang mô hình tăng dần độ phức tạp"><div>Hình thái + XGBoost</div><div>ResNet50</div><div>EfficientNet</div><div>ViT nhỏ</div></div>
+            <p class="note">độ phức tạp tăng dần →</p>
+          </div>
+        </div>
+      </li>
+      <li class="stp">
+        <span class="dot">04</span>
+        <div class="body">
+          <div><h3>Đánh giá mô hình</h3><p>So sánh hiệu năng và kiểm tra khả năng tổng quát hóa bằng leave-one-dataset-out (§2).</p><div class="chips"><span>macro-F1</span><span>QWK</span><span>ROC-AUC</span><span>Confusion matrix</span><span>MAE độ phủ</span><span>ECE</span><span>Risk–coverage</span></div></div>
+          <figure><img src="assets/fig4-so-sanh.webp" alt="So sánh kết quả phân đoạn giữa các mô hình AI với nhãn chuẩn" loading="lazy" width="502" height="491"><figcaption><b>Hình 4.</b> Phân đoạn của các mô hình so với nhãn chuẩn.</figcaption></figure>
+        </div>
+      </li>
+      <li class="stp">
+        <span class="dot">05</span>
+        <div class="body">
+          <div><h3>Giải thích có kiểm chứng</h3><p>Grad-CAM <b>kèm sanity check</b>: so với khi randomize trọng số. Nếu bản đồ nhiệt gần như không đổi, nó không đáng tin. Phân tích có hệ thống các ca sai. Ablation: bỏ augmentation, bỏ xử lý mất cân bằng, đổi độ phân giải.</p></div>
+          <div>
+            <div class="gradcam">
+              <div class="ok"><img src="assets/p4-in.webp" alt="" loading="lazy"><span>Trọng số đã học</span></div>
+              <div class="rnd"><img src="assets/p4-in.webp" alt="" loading="lazy"><span>Trọng số ngẫu nhiên</span></div>
+            </div>
+            <p class="note" style="margin-top:8px">Bản đồ nhiệt minh họa ý tưởng sanity check, không phải đầu ra mô hình.</p>
+          </div>
+        </div>
+      </li>
+      <li class="stp">
+        <span class="dot">06</span>
+        <div class="body solo">
+          <div><h3>Demo web</h3><p>Công cụ gọn, mã nguồn mở, chạy với ảnh kính hiển vi thông thường, hỗ trợ kiểm soát chất lượng nuôi cấy MSC. Không cần thiết bị đắt.</p></div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ĐỘ TIN CẬY -->
+<section class="section" id="tin-cay" style="background:#ecedeb">
+  <div class="wrap">
+    <div class="sh"><div><span class="idx">§5</span><h2>Biết khi nào không biết</h2></div><span class="meta">Dữ liệu mô phỏng · minh họa cơ chế</span></div>
+    <p class="lead">Với công cụ kiểm soát chất lượng, <b>từ chối đúng lúc</b> quan trọng hơn thêm 1% accuracy. Hai bước: hiệu chỉnh để xác suất nói thật, rồi đặt ngưỡng để ảnh không chắc được chuyển cho chuyên gia.</p>
+    <div class="rel-grid">
+      <div class="panel">
+        <div class="panel-h"><b>① Hiệu chỉnh xác suất</b>
+          <div class="seg" role="group" aria-label="Trạng thái hiệu chỉnh"><button type="button" id="cal-before" aria-pressed="true">Trước</button><button type="button" id="cal-after" aria-pressed="false">Sau</button></div>
+        </div>
+        <div class="panel-b">
+          <svg id="rel-plot" viewBox="0 0 360 280" role="img" aria-label="Biểu đồ độ tin cậy: độ chính xác thực tế theo độ tin cậy dự đoán"></svg>
+          <p class="note">Cột đỏ thấp hơn đường chéo = mô hình <b>tự tin quá mức</b>. ECE hiện tại: <b id="ece">—</b></p>
+        </div>
       </div>
-      <svg id="rc-plot" viewBox="0 0 360 260" role="img" aria-label="Đường cong risk–coverage minh họa"></svg>
+      <div class="panel">
+        <div class="panel-h"><b>② Ngưỡng từ chối</b><span>τ = <output id="tau-out">0.60</output></span></div>
+        <div class="panel-b">
+          <label for="tau" class="note">Kéo ngưỡng tin cậy</label>
+          <input type="range" id="tau" min="0.30" max="0.98" step="0.01" value="0.60">
+          <div class="stats">
+            <div><span>Coverage</span><b id="st-cov">—</b></div>
+            <div><span>Risk</span><b id="st-risk">—</b></div>
+            <div><span>Chuyển chuyên gia</span><b id="st-ref">—</b></div>
+          </div>
+          <div class="tray" id="tray" aria-hidden="true"></div>
+          <p class="legend"><span><i class="d ok"></i>tự trả lời, đúng</span><span><i class="d bad"></i>tự trả lời, sai</span><span><i class="d ref"></i>chuyển chuyên gia</span></p>
+          <svg id="rc-plot" viewBox="0 0 360 200" role="img" aria-label="Đường cong risk–coverage minh họa" style="margin-top:12px"></svg>
+        </div>
+      </div>
     </div>
-    <p class="disclaimer">Dữ liệu mô phỏng để minh họa cơ chế; không phải kết quả của Vision-MSC.</p>
+    <p class="disclaimer">Tất cả số liệu trong mục này là mô phỏng (400 ảnh giả lập) để minh họa cơ chế; không phải kết quả của Vision-MSC.</p>
   </div>
 </section>
 
 <!-- ĐIỂM MỚI -->
-<section class="wrap section" id="diem-moi">
-  <p class="num">05</p>
-  <h2>Điểm mới</h2>
-  <p class="lead">Phân loại tế bào label-free bằng deep learning đã có nhiều công bố, nên đề tài <b>không</b> nhận điểm mới ở việc “dùng AI”. Điểm mới nằm ở:</p>
-  <div class="novel">
-    <article><span>01</span><h3>Benchmark độ bền khi đổi điều kiện</h3><p>Leave-one-dataset-out thay vì chỉ báo cáo trong cùng một nguồn, nơi con số đẹp nhưng không đại diện.</p></article>
-    <article><span>02</span><h3>Biết khi nào không biết</h3><p>Hiệu chỉnh xác suất và cơ chế từ chối dự đoán khi ảnh nằm ngoài phân phối hoặc độ tin cậy thấp.</p></article>
-    <article><span>03</span><h3>Kiểm chứng tại lab Việt Nam</h3><p>Tập ảnh thật từ ít nhất một phòng lab trong nước; ngưỡng cảnh báo do chuyên gia xác nhận.</p></article>
-    <article><span>04</span><h3>Gọn, mở, dễ dùng</h3><p>Mã nguồn mở, chạy với ảnh kính hiển vi thông thường, kèm demo web.</p></article>
+<section class="section" id="diem-moi">
+  <div class="wrap">
+    <div class="sh"><div><span class="idx">§6</span><h2>Điểm mới</h2></div><span class="meta">Không nhận điểm mới ở “dùng AI”</span></div>
+    <p class="lead">Phân loại tế bào label-free bằng deep learning đã có nhiều công bố. Điểm mới nằm ở chỗ khác:</p>
+    <div class="novel">
+      <article class="reveal"><span class="n">01 / ĐỘ BỀN</span><h3>Benchmark khi đổi điều kiện</h3><p>Leave-one-dataset-out thay vì chỉ báo cáo trong cùng một nguồn.</p></article>
+      <article class="reveal"><span class="n">02 / TỪ CHỐI</span><h3>Biết khi nào không biết</h3><p>Hiệu chỉnh xác suất, từ chối khi ảnh ngoài phân phối hoặc độ tin cậy thấp.</p></article>
+      <article class="reveal"><span class="n">03 / TẠI CHỖ</span><h3>Kiểm chứng tại lab Việt Nam</h3><p>Ảnh thật từ ít nhất một lab trong nước; ngưỡng cảnh báo do chuyên gia xác nhận.</p></article>
+      <article class="reveal"><span class="n">04 / MỞ</span><h3>Gọn, mở, dễ dùng</h3><p>Mã nguồn mở, ảnh kính hiển vi thông thường, kèm demo web.</p></article>
+    </div>
   </div>
 </section>
 
-<!-- KẾT QUẢ & TÁC ĐỘNG -->
-<section class="band section" id="ket-qua">
+<!-- KẾT QUẢ -->
+<section class="section" id="ket-qua" style="padding-top:0">
   <div class="wrap">
-    <p class="num">06</p>
-    <h2>Kết quả kỳ vọng &amp; tác động</h2>
+    <div class="sh"><div><span class="idx">§7</span><h2>Kết quả kỳ vọng &amp; tác động</h2></div><span class="meta">Kỳ vọng, chưa phải kết quả</span></div>
     <div class="outcomes">
-      <article><h3>Tăng độ chính xác</h3><p>Trong đánh giá độ phủ tế bào và mức độ lão hóa MSC.</p></article>
-      <article><h3>Tăng độ tin cậy</h3><p>Nhờ hiệu chỉnh xác suất và cơ chế từ chối dự đoán.</p></article>
-      <article><h3>Tiết kiệm thời gian</h3><p>Tự động hóa phân tích hình ảnh, giảm phụ thuộc vào chuyên gia.</p></article>
+      <article class="reveal"><h3>Tăng độ chính xác</h3><p>Trong đánh giá độ phủ tế bào và mức độ lão hóa MSC.</p></article>
+      <article class="reveal"><h3>Tăng độ tin cậy</h3><p>Nhờ hiệu chỉnh xác suất và cơ chế từ chối dự đoán.</p></article>
+      <article class="reveal"><h3>Tiết kiệm thời gian</h3><p>Tự động hóa phân tích hình ảnh, giảm phụ thuộc vào chuyên gia.</p></article>
     </div>
     <div class="impact">
-      <div>
-        <h3>Tác động trực tiếp</h3>
-        <ul>
-          <li>Giảm sai lệch giữa các kỹ thuật viên.</li>
-          <li>Ghi nhận trạng thái nuôi cấy một cách nhất quán.</li>
-          <li>Giảm lãng phí vật tư khi tế bào đã lão hóa nhưng vẫn bị dùng tiếp.</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Hướng tiềm năng <small>(không phải kết quả)</small></h3>
-        <ul>
-          <li>Nền tảng cho kiểm soát chất lượng các sản phẩm từ MSC, trong đó có liệu pháp tái tạo da.</li>
-          <li>Exosome là hướng mở rộng, không phải tuyên bố chính của đề tài.</li>
-        </ul>
-      </div>
+      <div class="panel"><div class="panel-h"><b>Tác động trực tiếp</b></div><div class="panel-b"><ul>
+        <li>Giảm sai lệch giữa các kỹ thuật viên.</li>
+        <li>Ghi nhận trạng thái nuôi cấy một cách nhất quán.</li>
+        <li>Giảm lãng phí vật tư khi tế bào đã lão hóa nhưng vẫn bị dùng tiếp.</li>
+      </ul></div></div>
+      <div class="panel"><div class="panel-h"><b>Hướng tiềm năng</b><span>không phải kết quả</span></div><div class="panel-b"><ul>
+        <li>Nền tảng cho kiểm soát chất lượng các sản phẩm từ MSC, trong đó có liệu pháp tái tạo da.</li>
+        <li>Exosome là hướng mở rộng, không phải tuyên bố chính.</li>
+      </ul></div></div>
     </div>
   </div>
 </section>
 
 <!-- HẠN CHẾ -->
-<section class="wrap section" id="han-che">
-  <p class="num">07</p>
-  <h2>Hạn chế, nói rõ</h2>
-  <ul class="limits">
-    <li>Mô hình đánh giá tình trạng tế bào, <b>chưa chứng minh chất lượng exosome</b>.</li>
-    <li>Nhãn lão hóa từ passage là <b>nhãn thay thế (proxy)</b>, không phải đo sinh học trực tiếp trên từng ảnh.</li>
-    <li>Dữ liệu công khai có thể khác điều kiện lab Việt Nam; vì vậy kiểm chứng trong nước là hạng mục ưu tiên.</li>
-    <li>Đây là <b>công cụ hỗ trợ</b>; quyết định cuối thuộc về chuyên gia.</li>
-  </ul>
+<section class="section" id="han-che" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><div><span class="idx">§8</span><h2>Hạn chế, nói rõ</h2></div><span class="meta">Phạm vi của đề tài</span></div>
+    <ul class="limits">
+      <li class="reveal">Mô hình đánh giá tình trạng tế bào, <b>chưa chứng minh chất lượng exosome</b>.</li>
+      <li class="reveal">Nhãn lão hóa từ passage là <b>nhãn thay thế (proxy)</b>, không phải đo sinh học trực tiếp trên từng ảnh.</li>
+      <li class="reveal">Dữ liệu công khai có thể khác điều kiện lab Việt Nam; vì vậy kiểm chứng trong nước là hạng mục ưu tiên.</li>
+      <li class="reveal">Đây là <b>công cụ hỗ trợ</b>; quyết định cuối thuộc về chuyên gia.</li>
+    </ul>
+  </div>
 </section>
 
 <!-- KẾT LUẬN -->
 <section class="conclusion">
   <div class="wrap">
-    <h2>Kết luận</h2>
+    <span class="note">KẾT LUẬN</span>
     <p>Vision-MSC đề xuất giải pháp mới trong tự động hóa đánh giá chất lượng tế bào gốc trung mô nhờ tích hợp các mô hình AI cùng kỹ thuật hiệu chỉnh độ tin cậy. Bằng khả năng xác định độ phủ và nhận diện sớm các bất thường hình thái từ ảnh hiển vi, công cụ cung cấp kết quả khách quan, góp phần chuẩn hóa quy trình kiểm soát chất lượng, tối ưu thời gian và giảm rủi ro vận hành trong nghiên cứu lẫn sản xuất liệu pháp tế bào.</p>
     <div class="cta">
-      <a class="btn btn-light" href="https://github.com/ngophatneknha/Nexus-AI" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>Mã nguồn trên GitHub</a>
-      <a class="btn btn-ghost" href="#top">Về đầu trang</a>
+      <a class="btn" href="https://github.com/ngophatneknha/Nexus-AI" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>Mã nguồn trên GitHub</a>
+      <a class="btn ghost" href="#top">Về đầu trang</a>
     </div>
   </div>
 </section>
 
 <!-- TÀI LIỆU -->
-<section class="wrap section refs" id="tai-lieu">
-  <h2>Tài liệu tham khảo</h2>
-  <ol>
-    <li>He, L., Li, M., Wang, X., et al. (2024). Morphology-based deep learning enables accurate detection of senescence in mesenchymal stem cell cultures. <i>BMC Biology</i>, 22, 1. <a href="https://doi.org/10.1186/s12915-023-01780-2" target="_blank" rel="noopener">doi:10.1186/s12915-023-01780-2</a></li>
-    <li>Liu, Z., An, G., Liang, X., et al. (2026). Deep learning-based in silico labeling for analyzing morphological features of MSCs to predict immunomodulatory capacity. <i>Communications Biology</i>, 9, 742. <a href="https://doi.org/10.1038/s42003-026-09833-2" target="_blank" rel="noopener">doi:10.1038/s42003-026-09833-2</a></li>
-    <li>Dawood, T., Chen, C., Sidhu, B. S., et al. (2023). Uncertainty aware training to improve deep learning model calibration for classification of cardiac MR images. <i>Medical Image Analysis</i>, 88, 102861. <a href="https://doi.org/10.1016/j.media.2023.102861" target="_blank" rel="noopener">doi:10.1016/j.media.2023.102861</a></li>
-    <li>Mukherjee, S., Sarkar, R., Manich, M., Labruyere, E., &amp; Olivo-Marin, J.-C. (2023). Domain adapted multitask learning for segmenting amoeboid cells in microscopy. <i>IEEE Transactions on Medical Imaging</i>, 42(1), 42–54. <a href="https://doi.org/10.1109/TMI.2022.3203022" target="_blank" rel="noopener">doi:10.1109/TMI.2022.3203022</a></li>
-  </ol>
+<section class="section refs" id="tai-lieu">
+  <div class="wrap">
+    <div class="sh"><h2>Tài liệu tham khảo</h2><span class="meta">4 tài liệu</span></div>
+    <ol>
+      <li>He, L., Li, M., Wang, X., et al. (2024). Morphology-based deep learning enables accurate detection of senescence in mesenchymal stem cell cultures. <i>BMC Biology</i>, 22, 1. <a href="https://doi.org/10.1186/s12915-023-01780-2" target="_blank" rel="noopener">doi:10.1186/s12915-023-01780-2</a></li>
+      <li>Liu, Z., An, G., Liang, X., et al. (2026). Deep learning-based in silico labeling for analyzing morphological features of MSCs to predict immunomodulatory capacity. <i>Communications Biology</i>, 9, 742. <a href="https://doi.org/10.1038/s42003-026-09833-2" target="_blank" rel="noopener">doi:10.1038/s42003-026-09833-2</a></li>
+      <li>Dawood, T., Chen, C., Sidhu, B. S., et al. (2023). Uncertainty aware training to improve deep learning model calibration for classification of cardiac MR images. <i>Medical Image Analysis</i>, 88, 102861. <a href="https://doi.org/10.1016/j.media.2023.102861" target="_blank" rel="noopener">doi:10.1016/j.media.2023.102861</a></li>
+      <li>Mukherjee, S., Sarkar, R., Manich, M., Labruyere, E., &amp; Olivo-Marin, J.-C. (2023). Domain adapted multitask learning for segmenting amoeboid cells in microscopy. <i>IEEE Transactions on Medical Imaging</i>, 42(1), 42–54. <a href="https://doi.org/10.1109/TMI.2022.3203022" target="_blank" rel="noopener">doi:10.1109/TMI.2022.3203022</a></li>
+    </ol>
+  </div>
 </section>
 
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <p class="foot-title">Vision-MSC · Đội NexusAI · MĐT 515</p>
+    <p><b>Vision-MSC · Đội NexusAI · MĐT 515</b></p>
     <p>Cuộc thi Sáng tạo Tế bào gốc 2026 — Lần thứ 11 — Chủ đề: Tế bào gốc &amp; AI</p>
     <p><a href="https://2026.stemcellinnovation.com.vn" target="_blank" rel="noopener">2026.stemcellinnovation.com.vn</a> · <a href="mailto:sci@sci.edu.vn">sci@sci.edu.vn</a> · 028 3636 1206 (nhánh 3)</p>
   </div>
 </footer>
 
 <script src="main.js"></script>
+<script type="module" src="scene3d.js"></script>
 </body>
 </html>
